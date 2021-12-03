@@ -1,0 +1,22 @@
+
+<div class="container">
+
+    <div class="toppane">POSTS</div>
+
+    <div class="leftpane">
+        <p >Number of Posts {{postData.length}}</p>
+        <app-postsview [post]="specificPost"></app-postsview>
+    </div>
+
+    <div class="middlepane">
+        <app-post [data]="postData" (onPostClick)="handlePostClick($event)">
+        </app-post>
+    </div>
+
+    <div class="rightpane">
+        <button (click) = "show = !show" class="button">New Post</button>
+        <div *ngIf='show'>
+            <app-form (onSubmit)="onFormSubmit($event)"></app-form>
+        </div>     
+    </div>
+</div>
